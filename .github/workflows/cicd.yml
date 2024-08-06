@@ -61,6 +61,14 @@ jobs:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GHCR_TOKEN}}
+
+- name: Debug info
+  run: |
+    echo "Current user: $(whoami)"
+    echo "Docker info:"
+    docker info
+    echo "Docker version:"
+    docker version
           
       - name: Docker run
         run: |

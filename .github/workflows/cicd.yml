@@ -64,7 +64,6 @@ jobs:
           
       - name: Docker run
         run: |
-          sudo docker container ls
           sudo docker stop temp-container-name || true
           sudo docker rm temp-container-name || true
           sudo docker rmi ghcr.io/sangddong/my-image:latest || true

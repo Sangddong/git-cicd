@@ -64,6 +64,7 @@ jobs:
 
       - name: Debug info
         run: |
+          sudo docker image ls
           sudo docker container ls
           
       - name: Docker run

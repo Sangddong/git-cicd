@@ -64,11 +64,7 @@ jobs:
 
       - name: Debug info
         run: |
-          echo "Current user: $(whoami)"
-          echo "Docker info:"
-          docker info
-          echo "Docker version:"
-          docker version
+          sudo docker container ls
           
       - name: Docker run
         run: |

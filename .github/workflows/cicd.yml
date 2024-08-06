@@ -62,10 +62,10 @@ jobs:
           username: ${{github.actor}}
           password: ${{secrets.GHCR_TOKEN}}
 
-      - name: Debug info
-        run: |
-          sudo docker image ls
-          sudo docker container ls
+     # - name: Debug info
+      #  run: |
+        #  sudo docker image ls
+        #  sudo docker container ls
           
       - name: Docker run
         run: |

@@ -56,7 +56,7 @@ jobs:
     runs-on: [self-hosted, sangddong]
     steps:
       - name: Login to ghcr
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3.3.0
         with: 
           registry: ghcr.io
           username: ${{github.actor}}
@@ -64,15 +64,9 @@ jobs:
           
       - name: Docker run
         run: |
-          if sudo docker ps -a --filter "name=temp-container-name" --format '{{.Names}}' | grep -w temp-container-name; then
-            sudo docker stop temp-container-name || true
-            sudo docker rm temp-container-name || true
-          fi
-
-          if sudo docker images --filter "reference=ghcr.io/sangddong/my-image:latest" --format '{{.Repository}}:{{.Tag}}' | grep -w ghcr.io/sangddong/my-image:latest; then
-            sudo docker rmi ghcr.io/sangddong/my-image:latest || true
-          fi
-    
+          sudo docker stop temp-container-name || true
+          sudo docker rm temp-container-name || true
+          sudo docker rmi ghcr.io/sangddong/my-image:latest || true
           sudo docker run -d -p 80:3001 \
           --name temp-container-name \
           --restart always \

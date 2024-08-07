@@ -69,9 +69,9 @@ jobs:
           
       - name: Docker run
         run: |
-          sudo docker stop temp-container-name || true
-          sudo docker rm temp-container-name || true
-          sudo docker rmi ghcr.io/sangddong/my-image:latest || true
+          # sudo docker stop temp-container-name || true
+          # sudo docker rm temp-container-name || true
+          # sudo docker rmi ghcr.io/sangddong/my-image:latest || true
           sudo docker run -d -p 80:3001 \
           --name temp-container-name \
           --restart always \
